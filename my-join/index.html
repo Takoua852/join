@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="icon" href="assets/img/Capa 2.png">
+    <script src="storage.js"></script>
+    <script src="script.js"></script>
+
+    <script src="register.js"></script>
+    <title>Join</title>
+</head>
+
+<body onload="init()">
+
+    <div id="desk-container"></div>
+    <!-- <div id="mobile-container"></div> -->
+
+    <div id="rechtliches-container"></div>
+    <img id="loadImage" src="./assets/img/Capa 2.png" alt="">
+    
+    <div id="loginHeader">
+        <p class="signup">Not a Join user?</p>
+        <button class="signupBtn" type="button" onclick="showSignupForm()">Sign up</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="login-container">
+        <form id="loginForm" onsubmit="login(); return false;">
+            <h1>Log in
+                <hr style="background: rgba(41, 171, 226, 1);border: 3px solid rgba(41, 171, 226, 1)">
+            </h1>
+            <input id="inputemail" type="email" placeholder="Email" required autocomplete="username">
+            <input id="inputpassword" type="password" placeholder="Password" required autocomplete="current-password">
+            <div class="inputcheckbox">
+                <input id="checkbox" type="checkbox"> Remember me
+            </div>
+            <div id="msgBox"></div>
+            <div class="loginButtons">
+                <button id="userlogin" type="submit">Log in</button>
+                <button id="guestlogin" type="button" onclick="guestLogin()">Guest Log in</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signup-container" style="display: none;">
+
+        <form id="signupForm" onsubmit="register(); return false;">
+            <img src="assets/img/leftArrow.png" alt="" class="leftarrow" onclick="hideSignupForm()">
+            <h1>
+                Sign up
+                <hr style="background: rgba(41, 171, 226, 1);border: 3px solid rgba(41, 171, 226, 1)">
+            </h1>
+            <input type="text" placeholder="Name" autocomplete="username" id="username" required>
+            <input type="email" placeholder="Email" autocomplete="email" id="useremail" required>
+            <input type="password" placeholder="Password" autocomplete="current-password" id="userpassword" required>
+            <input type="password" placeholder="Confirm Password" autocomplete="current-password" id="userconfirmpass"
+                required>
+            <div class="inputcheckbox">
+                <input id="scheckbox" type="checkbox" required> I accept the <a href=""> Privacy policy</a>
+            </div>
+            <button id="subBtn" class="signupBtn" button="submit" >Sign up</button>
+        </form>
+    </div>
+
+    <div id="msgBox"></div>
+
+    <div id="footer-links">
+        <div class="links" style="cursor:pointer" onclick="openPolicy()">Privacy Policy</div>
+        <div class="links" style="cursor:pointer" onclick="openNotice()">Legal Notice</div>
+    </div>
+
+</body>
+
+</html>

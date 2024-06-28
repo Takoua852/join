@@ -1,0 +1,846 @@
+body {
+    font-family: 'Inter';
+    overflow: hidden;
+    height: 100vh;
+    transform-origin: left top;
+}
+
+#contactList {
+    position: fixed;
+    width: 456px;
+    height: 928px;
+    top: 96px;
+    left: 232px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
+}
+
+#liste {
+    width: 400px;
+    height: calc(100% - 196px);
+    padding: 32px 24px 80px;
+    position: absolute;
+    top: 64px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.titleBox {
+    position: absolute;
+    width: 569px;
+    height: 73px;
+    left: 550px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.title {
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.addButton {
+    width: 456px;
+    height: 101px;
+}
+
+.addBtn {
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    top: 22.5px;
+    Left: 52px;
+    padding: 12px 0px 12px 0px;
+    border-radius: 10px;
+    gap: 16px;
+    display: flex;
+    background: rgba(42, 54, 71, 1);
+    border: 1px solid rgba(42, 54, 71, 1);
+    color: white;
+    background-image: url('./assets/img/person_add.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% - 35px);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.overlayContact {
+    width: 1212px;
+    height: 594px;
+    position: fixed;
+    z-index: 2;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 1);
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    gap: 20px;
+    display: flex;
+    transition: left 2s;
+    visibility: hidden;
+}
+
+.overlayContact.active {
+    left: 50%;
+    visibility: visible;
+}
+
+.addImage {
+    width: 120px;
+    object-fit: contain;
+}
+
+.l-logo {
+    width: 53.93px;
+    height: 66.48px;
+    top: 154px;
+    left: 45.5px;
+    position: absolute;
+}
+
+.edit-title {
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+    left: 45.5px;
+    position: absolute;
+    top: 240px;
+    width: auto;
+}
+
+/* .closeEdit {
+    width: 32px;
+    height: 32px;
+    top: 48px;
+    left: 1132px;
+    padding: 4px;
+    border-radius: 56px;
+    position: absolute;
+    cursor: pointer;
+} */
+
+.edit-badge {
+    width: 120px;
+    height: 120px;
+    border-radius: 70px;
+    gap: 10px;
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 56px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.edit-addContact {
+    position: absolute;
+    width: 422px;
+    height: 215px;
+    top: 137px;
+    left: 742px;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+input:hover {
+    border: 1px solid rgba(41, 171, 226, 1)
+}
+
+.closeEdit {
+    width: 32px;
+    height: 32px;
+    top: 48px;
+    left: 1132px;
+    padding: 4px;
+    border-radius: 56px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.editButtons {
+    position: absolute;
+    width: 364px;
+    height: 57px;
+    top: 400px;
+    left: 742px;
+    gap: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete {
+    width: 132px;
+    height: 55px;
+    padding: 15px 24px 15px 24px;
+    border-radius: 8px;
+    border: 1px;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(42, 54, 71, 1);
+    border: 1px solid rgba(42, 54, 71, 1);
+    cursor: pointer;
+    background-color: #FFFFFF;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+}
+
+.delete:hover {
+    border: 2px solid rgba(41, 171, 226, 1);
+    color: rgba(41, 171, 226, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.save {
+    width: 111px;
+    height: 57px;
+    padding: 16px;
+    border-radius: 10px;
+    gap: 4px;
+    background: rgba(42, 54, 71, 1);
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.s-icon {
+    background-image: url('./assets/img/check.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position-x: calc(100% - 8px);
+    background-position-y: 50%;
+}
+
+.save:hover {
+    background-color: rgba(41, 171, 226, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+}
+
+.create {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 214px;
+    height: 57px;
+    padding: 16px;
+    border-radius: 10px;
+    gap: 4px;
+    background: rgba(42, 54, 71, 1);
+    color: white;
+    background-image: url('./assets/img/check.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% - 12px);
+}
+
+.create:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: rgba(9, 25, 49, 1);
+}
+
+.cancel {
+    background-image: url('./assets/img/close.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% - 12px);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 126px;
+    height: 56px;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px;
+    gap: 4px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    background-color: #FFFFFF;
+}
+
+.cancel:hover {
+    border: 1px solid rgba(41, 171, 226, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.inputBox {
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 422px;
+    padding: 0 20px;
+}
+
+input {
+    width: auto;
+    height: 25px;
+    padding: 13px 21px 13px 21px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    gap: 10px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
+input:hover {
+    border: 1px solid rgba(41, 171, 226, 1);
+}
+
+.input-name {
+    background-image: url('./assets/img/person.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% - 20px);
+}
+
+.input-mail {
+    background-image: url('./assets/img/mail.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% - 20px);
+}
+
+.input-tel {
+    background-image: url('./assets/img/call.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: calc(100% - 20px);
+}
+
+.left-seide {
+    width: 467px;
+    height: 100%;
+    gap: 12px;
+    background: rgba(42, 54, 71, 1);
+    border-radius: 30px 0px 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeIcon {
+    width: 20px;
+    object-fit: contain;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+
+.l-logo {
+    width: 53.93px;
+    height: 66.48px;
+    top: 154px;
+    left: 45.5px;
+    position: absolute;
+}
+
+.under-title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 1.2px;
+    text-align: left;
+    position: absolute;
+    left: 45.5px;
+    top: 314px;
+    color: white;
+}
+
+.l-line {
+    transform: rotate(90deg);
+    margin-left: 30px;
+    position: absolute;
+    left: 45.5px;
+    top: 334px;
+}
+
+.contactInfo {
+    width: 352px;
+    height: 78px;
+    padding: 15px 24px 15px 24px;
+    border-radius: 10px;
+    gap: 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+.contactInfo:hover {
+    background-color: rgba(244, 244, 244, 1);
+}
+
+.contactName {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 48px;
+    width: 140px;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    justify-content: center;
+    padding: 0 24px;
+}
+
+.profilBadge {
+    width: 42px;
+    height: 42px;
+    border-radius: 45px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.floatingContact {
+    width: 461px;
+    height: 364px;
+    top: 238px;
+    left: 550px;
+    gap: 26px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
+
+.f-name-badge {
+    width: 461px;
+    height: 120px;
+    gap: 54px;
+    display: flex;
+    align-items: center;
+}
+
+.floatingBadge {
+    width: 120px;
+    height: 120px;
+    border-radius: 70px;
+    gap: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 56px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+#infoFloating {
+    display: none;
+    width: 326px;
+    height: 74px;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    background-color: rgba(42, 54, 71, 1);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    animation: fadeInOut 2s ease;
+}
+
+.edit-delete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    display: none;
+    z-index: 1;
+}
+
+.popupEditdelete{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color:  rgba(42, 54, 71, 1);
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+@keyframes fadeInOut {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: 50%;
+    }
+}
+
+.contact-selected {
+    background-color: rgba(42, 54, 71, 1);
+    color: white;
+}
+
+.contact-selected:hover {
+    color: rgba(42, 54, 71, 1);
+}
+
+.d-none {
+    display: none;
+}
+
+#backToListe {
+    display: none;
+}
+
+
+@media only screen and (max-width: 1350px) {
+    .titleBox {
+        width: 100%;
+        font-size: 16px;
+        left: 500px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .floatingBadge {
+        width: 81px;
+        height: 81px;
+    }
+
+    .floatingContact {
+        left: 500px;
+    }
+}
+
+/* overlay anpassen */
+@media only screen and (max-width: 1200px) {
+    .overlayContact {
+        width: auto;
+    }
+
+    .left-seide {
+        width: 300px;
+        align-items: flex-start;
+    }
+
+    .l-line {
+        padding: 0 20px;
+    }
+
+    .edit-title {
+        padding: 0 20px;
+        font-size: 36px;
+    }
+
+
+    .under-title {
+        font-size: 15px;
+        padding: 0 20px;
+    }
+
+    .addImage {
+        width: 100px;
+    }
+
+    /* overlay */
+    .left-seide {
+        width: 325px;
+    }
+
+    #contactList {
+        width: 350px;
+    }
+
+    .addButton {
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .addBtn {
+        position: unset;
+        width: 100%;
+    }
+
+    #liste {
+        width: auto;
+        padding: 20px;
+        position: unset;
+        height: calc(100% - 270px);
+    }
+
+    .contactInfo {
+        width: auto;
+        padding: 0 20px;
+    }
+
+    .profilBadge {
+        width: 32px;
+        height: 32px;
+    }
+
+    .contactName {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    .titleBox,
+    .floatingContact {
+        left: 365px;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .left-seide {
+        width: 294px;
+    }
+
+    .overlayContact {
+        gap: 8px;
+    }
+
+    form {
+        padding: 0 16px;
+        width: 325px;
+    }
+
+    .titleBox,
+    .floatingContact {
+        display: none;
+        position: unset;
+    }
+
+    #backToListe {
+        display: block;
+    }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+    .overlayContact {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-seide {
+        width: 100%;
+        border-radius: 30px 30px 0 0;
+        padding-bottom: 20px;
+    }
+
+    .l-logo {
+        display: none;
+    }
+
+    .edit-title {
+        position: unset;
+    }
+
+    .under-title {
+        position: unset;
+    }
+
+    .l-line {
+        position: unset;
+    }
+
+    .addImage {
+        margin-top: -45px;
+    }
+
+    .cancel {
+        display: none;
+    }
+
+    .create {
+        align-self: center;
+    }
+
+    form {
+        align-items: center
+    }
+
+    .closeIcon {
+        filter: brightness(6.5);
+    }
+
+    .edit-badge {
+        margin-top: -45px;
+    }
+
+    #contactList {
+        width: 100%;
+        height: calc(100% - 176px);
+        left: 0;
+    }
+
+    .f-name-badge {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .floatingBadge {
+        width: 51px;
+        height: 51px;
+        font-size: 30px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .titleBox,
+    .floatingContact {
+        padding-left: 20px;
+        width: calc(100% - 20px);
+    }
+    .popupEditdelete{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .overlayContact {
+        width: 100%;
+    }
+
+    .edit-title {
+        font-size: 31px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .titleBox {
+        line-height: 19px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    .delete {
+        font-size: 16px;
+    }
+
+    .save {
+        font-size: 16px;
+    }
+
+    .addBtn {
+        font-size: 16px;
+        background-position-x: 50%;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        top: unset;
+        left: unset;
+    }
+
+    #liste {
+        height: calc(100% - 80px);
+    }
+
+    .addButton {
+        height: auto;
+    }
+
+    .addBtn span {
+        display: none;
+    }
+
+    .titleBox {
+        gap: 8px;
+    }
+
+    .edit-delete {
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px 20px 0 20px;
+        bottom: 0;
+        right: 0;
+    }
+}

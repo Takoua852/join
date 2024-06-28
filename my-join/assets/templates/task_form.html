@@ -1,0 +1,58 @@
+<h1 class="title">Add Task</h1>
+<form onsubmit="createTask(); return false;" id="taskForm">
+    <div class="left-seide" id="left">
+
+        <div class="input-title">Title <input type="text" placeholder=" Enter a title" required id="title"></div>
+
+        <div class="description">Description<textarea placeholder=" Enter a Description" required
+                id="descriptionText"></textarea></div>
+
+        <div class="assignedto">Assigned To <div id="assignedto-input" class="assignedto-input"
+                onclick="openContactList()" style="cursor: pointer;"> Select contacts to assign <img
+                    src="assets/img/arrow_drop_down.png" alt=""></div>
+        </div>
+        <div class="contactListe" id="contact" style="display: none;">
+        </div>
+        <div id="assignedContact"></div>
+    </div>
+
+    <hr style="border: 1px solid rgba(209, 209, 209, 1)">
+
+    <div class="right-seide">
+
+        <div class="input-date">Due date<input type="date" required id="date"></div>
+
+        <div class="prioContainer">Prio
+            <div class="prioButtons">
+                <button class="urgent p-btn" id="urgentBtn" onclick="selectPriority('urgent')">Urgent</button>
+                <button class="medium p-btn" id="mediumBtn" onclick="selectPriority('medium')">Medium</button>
+                <button class="low p-btn" id="lowBtn" onclick="selectPriority('low')">Low</button>
+            </div>
+        </div>
+
+        <div class="categories">Category
+            <select id="select-task" class="select-task" required>
+                <option value="">Select task category</option>
+                <option value="technical">Technical Task</option>
+                <option value="userStory">User Story</option>
+            </select>
+        </div>
+
+        <div class="subtasks" id="subtask">Subtasks
+            <!-- <input id="subtaskInput" type="text" placeholder="Add new subtask" onclick="addSubtask()"> -->
+            <input id="subtaskInput" type="text" placeholder="Add new subtask" onclick="showIcons()"
+                oninput="togglePlusIcon()">
+            <span class="plus-icon" onclick="showIcons()"><img src="assets/img/plus.png"></span>
+            <span class="save-icon" onclick="addSubtask()"><img style="filter: brightness(0.5);"
+                    src="assets/img/check.png"></span>
+            <span class="delete-icon" onclick="deleteTask()"><img src="assets/img/close.png">|</span>
+
+            <ul id="newsubtasks"></ul>
+        </div>
+
+        <div class="form-buttons">
+            <button class="clearBtn" type="button" onclick="clearTaskForm()">Clear</buttons>
+                <button class="submitBtn" type="submit">Create Task</buttons>
+        </div>
+    </div>
+</form>

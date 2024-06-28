@@ -1,0 +1,30 @@
+<div class="desk-title" id="deskTitle">
+    <div class="d-title"
+        style="display:flex; align-items: center;justify-content: space-between;width: calc(100% - 250px);position: absolute;left: 232px;">
+        <h1 style="font-size: 20px;padding: 0 16px;">Kanban Project Management Tool</h1>
+        <div style="display: flex;align-items: center;gap: 8px;">
+            <img src="assets/img/help.png" onclick="openHelp()" style="cursor: pointer;">
+            <div id="userInitial" onclick="popupMenu(event)" style="cursor: pointer;"></div>
+        </div>
+    </div>
+
+</div>
+
+<nav class="desk-nav">
+    <img  src="assets/img/Capa1.png" class="desk-logo">
+    <a class="smooth-link" onclick="openSummary()"><img src="assets/img/summary.png"> Summary</a>
+    <a class="smooth-link" onclick="openAddTask()"><img src="assets/img/addTask.png"> Add Task</a>
+    <a class="smooth-link" onclick="openBoard()"><img src="assets/img/board.png"> Board</a>
+    <a class="smooth-link" onclick="openContacts()"><img src="assets/img/contacts.png"> Contacts</a>
+</nav>
+
+<nav id="rechtliches">
+    <button class="rechtlichesButton" type="button" onclick="openPolicy()">Privacy policy</button>
+    <button class="rechtlichesButton" type="button" onclick="openNotice()">Legal notice</button>
+</nav>
+
+<div id="popup-menu">
+    <button onclick="openPolicy()" class="rechtlichesButton">Legal Notice</button>
+    <button onclick="openNotice()" class="rechtlichesButton">Privacy Policy</button>
+    <button class="rechtlichesButton" onclick="logOut()">Log out</button>
+</div>

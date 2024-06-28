@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <title>Summary</title>
+    <link rel="icon" href="assets/img/Capa 2.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="summary.css">
+    <script src="assets/js/templateLoader.js"></script>
+    <script src="assets/js/summary.js"></script>
+    <link rel="icon" href="assets/img/Capa 2.png">
+    <script src="storage.js"></script>
+
+
+</head>
+
+<body onload="includeHTML(), initSummary()">
+    <div id="desk-container"></div>
+    <div id="desk-content">
+        <div class="title-box">
+            <h1 class="title">Join 360</h1>
+            <hr class="hr-title">
+            <div class="title-txt">Key Metrics at a Glance </div>
+        </div>
+        <div class="tasks-box">
+
+            <div class="top-tasks">
+                <a onclick="openBoard()" class="link-to-board">
+                    <div class="top-task-box">
+                  
+                        <div class="box-flex"><span class="box-fonts" id="numberoftotasks"></span>To-do</div>
+                    </div>
+                    <div class="top-task-box">
+
+                        <div class="box-flex"><span class="box-fonts" id="numberofdonetasks"></span>Done</div>
+                    </div>
+                </a>
+            </div>
+
+            <a onclick="openBoard()" class="link-to-board">
+                <div class="mi-tasks-box ">
+                    <div style="display:flex; gap:20px; align-items: center;"><img src="assets/img/urgent.png">
+                        <span class="box-fonts" id="urgentTasks">
+                    </div>
+
+                    <hr class="mi-hr">
+                    <div style="display: flex;flex-direction: column; gap: 20px;">
+                        <div class="date" id="deadLineDatum"></div> Upcoming Deadline
+                    </div>
+                </div>
+            </a>
+
+            <a onclick="openBoard()" class="link-to-board">
+                <div class="bottom-tasks-collection">
+                    <div class="bottom-tasks">
+                        <span class="box-fonts" id="boardTasks"></span>Tasks in Board
+                    </div>
+                    <div class="bottom-tasks">
+                        <span class="box-fonts" id="progressTasks"></span>Tasks in Progress
+                    </div>
+                    <div class="bottom-tasks">
+                        <span class="box-fonts" id="afTasks"></span>Awaiting Feedback
+                    </div>
+
+                </div>
+            </a>
+        </div>
+
+        <div class="greetingDiv">
+            <!-- Good Morning, <br>
+            <div id="g_username"></div> -->
+        </div>
+    </div>
+    <div id="rechtliches-content"></div>
+</body>
+
+</html>

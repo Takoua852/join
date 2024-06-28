@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="addTask.css">
+    <link rel="icon" href="assets/img/Capa 2.png">
+    <script src="assets/js/templateLoader.js"></script>
+    <script src="storage.js"></script>
+    <script src="assets/js/board.js"></script>
+    <script src="assets/js/addTask.js"></script>
+    <script src="assets/js/dragAndDrop.js"></script>
+    <script src="assets/js/cardHtmlTemplates.js"></script>
+  
+    <title>Board</title>
+</head>
+
+<body onload="includeHTML(), initBoard()">
+    <div id="desk-container"></div>
+    <div id="desk-content">
+        <div class="board-header">
+            <h1 class="title">Board <img src="./assets/img/plus add task mobile.png" class="addIcon"
+                    onclick="showFloatingTask()"></h1>
+            <div class="search-add">
+                <input type="text" class="input-search" placeholder="Find Task" id="searchInput"
+                    onkeyup="filterTasks()">
+                <button class="add-btn" onclick="showFloatingTask()"><span>Add task +</span></button>
+            </div>
+        </div>
+
+        <div class="distribution-board">
+            <div class="column-set">
+                <div class="column"><span>To do</span> <img src="./assets/img/plus button.png" onclick="addTodo()"></div>
+                <div class="noTask" id="noTasksTodo">No tasks To do</div>
+                <div class="col" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="column-set">
+                <div class="column"><span>In progress</span> <img src="./assets/img/plus button.png" onclick="addInProgress()"></div>
+                <div class="noTask" id="noTasksInProgress">No tasks in progress</div>
+                <div class="col" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="column-set">
+                <div class="column"><span>Await feedback</span> <img src="./assets/img/plus button.png" onclick="addAwaitFeedback()"></div>
+                <div class="noTask" id="noTasksAwaitingFeedback">No tasks awaiting feedback</div>
+                <div class="col" id="awaitfeedback" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+            </div>
+            <div class="column-set">
+                <div class="column"><span>Done</span></div>
+                <div class="col" id="done" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="floatingTask"></div>
+    <div id="rechtliches-content"></div>
+</body>
+
+</html>

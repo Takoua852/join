@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="contacts.css">
+    <link rel="icon" href="assets/img/Capa 2.png">
+    <script src="assets/js/templateLoader.js"></script>
+    <script src="assets/js/contacts.js"></script>
+    <script src="storage.js"></script>
+
+    <title>Contacts</title>
+</head>
+
+<body onload="includeHTML(), initContacts() ">
+    <div id="desk-container"></div>
+    <div id="desk-content">
+        <div class="titleBox">
+            <h1 class="title">
+                Contacts
+            </h1>
+            <img src="assets/img/verticalLine.png" alt="">
+            Better with a team
+            <img id="backToListe" src="assets/img/leftArrow.png" onclick="backToListe()">
+        </div>
+        <!-- Contact List -->
+        <div id="contactList">
+            <div class="addButton"><button class="addBtn" id="addContactBtn" onclick="addContact()"><span>Add new
+                        contact</span></button></div>
+            <div id="liste"></div>
+        </div>
+
+        <div class="floatingContact" id="floatingContact"></div>
+    </div>
+
+
+
+    <!-- Overlay Contact -->
+    <div id="overlayAddContact" class="overlayContact">
+        <div class="left-seide">
+            <img class="l-logo" src="assets/img/Capa1.png" alt="">
+            <div class="edit-title">Add contact </div>
+            <div style="display: flex;align-items: flex-start;flex-direction: column;">
+                <span class="under-title">Tasks are better with a team! </span>
+                <img class="l-line" src="assets/img/verticalLine.png">
+            </div>
+        </div>
+        <img class="addImage" src="assets/img/group.png" alt="">
+
+        <form onsubmit="createContact(); return false;">
+            <div class="inputBox">
+                <input type="text" id="username" required placeholder="Name" class=" input-name">
+                <input type="email" id="mail" required placeholder="Email" class="input-mail">
+                <input type="tel" id="tel" required placeholder="Phone" pattern="[0-9]{12}" class="input-tel">
+            </div>
+            <div style="display: flex;gap:8px;padding: 24px 0;align-items: center;">
+                <button type="button" onclick="closeAddContact()" class="cancel">Cancel</button>
+                <button type="submit" class="create">Create Contact</button>
+            </div>
+        </form>
+        <img src="assets/img/close.png" class="closeIcon" onclick="closeAddContact()">
+    </div>
+    <div id="overlayEditContact" class="overlayContact"></div>
+
+    <div id="infoFloating"></div>
+    <div id="rechtliches-content"></div>
+</body>
+
+</html>

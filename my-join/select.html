@@ -1,0 +1,61 @@
+<div class="custom-select" onclick="showOptions()">
+    <div class="placeholder">Select contacts to assign</div>
+    <div class="options">
+      <div class="option">
+        <input type="checkbox" id="contact1">
+        <label for="contact1">Contact 1</label>
+      </div>
+      <div class="option">
+        <input type="checkbox" id="contact2">
+        <label for="contact2">Contact 2</label>
+      </div>
+      <div class="option">
+        <input type="checkbox" id="contact3">
+        <label for="contact3">Contact 3</label>
+      </div>
+      <!-- Weitere Kontakte hier -->
+    </div>
+  </div>
+  
+<style>
+    .custom-select {
+  position: relative;
+  display: inline-block;
+}
+
+.placeholder {
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+}
+
+.option {
+  padding: 10px;
+}
+
+.option:hover {
+  background: #f0f0f0;
+}
+
+</style>
+<script>
+ function showOptions() {
+  var options = document.querySelector('.custom-select .options');
+  if (options.style.display === "none") {
+    options.style.display = "block";
+  } else {
+    options.style.display = "none";
+  }
+}
+
+</script>
